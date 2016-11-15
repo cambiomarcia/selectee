@@ -2,21 +2,21 @@
 
 <h3>Installation</h3>
 * Download the zip or install it through npm
-```
+```sh
 	npm install selectee
 ```
 * Properly link the selectee.js file in your code
-```
+```html
 	<script src="path/to/ng-drift/lib/selectee.js"></script>
 	<link rel="stylesheet" type="text/css" href="path/to/ng-drift/lib/selectee.css"/>
 ```
 if you have installed it through npm, it will simply be
-```
+```html
 	<script src="node_modules/selectee/selectee.js"></script>
 	<link rel="stylesheet" type="text/css" href="node_modules/selectee/selectee.css"/>
 ```
 * Add 'cambiomarcia.selectee' as a dependency of your app
-```
+```javascript
 	angular.module('yourApp', ['cambiomarcia.selectee']);
 ```
 
