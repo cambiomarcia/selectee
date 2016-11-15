@@ -1,31 +1,31 @@
-angular.module('cambiomarcia.selecty', [])
-	.directive('selecty', function(){
+angular.module('cambiomarcia.selectee', [])
+	.directive('selectee', function(){
 			return {
 				restrict:'E',
 				replace: true,
 				scope: {
-					selectyOptions: '=',
+					selecteeOptions: '=',
 					toCommit: '=ngModel',
 					isDisabled: '=ngDisabled'
 				},
 				require: 'ngModel',
-				template: '<div class="selecty" ng-class="{disabled: isDisabled}">\
-								<div class="selecty-input-label">{{::label}}</div>\
-								<div class="selecty-input-container">\
-									<input type="text" class="selecty-input" ng-model="internal" ng-keyup="filter($event)" ng-keydown="checkClose($event)" ng-focus="open($event)">\
-									<div class="selecty-arrow" ng-click="open($event)"></div>\
-									<div class="selecty-close" ng-click="close()"></div>\
+				template: '<div class="selectee" ng-class="{disabled: isDisabled}">\
+								<div class="selectee-input-label">{{::label}}</div>\
+								<div class="selectee-input-container">\
+									<input type="text" class="selectee-input" ng-model="internal" ng-keyup="filter($event)" ng-keydown="checkClose($event)" ng-focus="open($event)">\
+									<div class="selectee-arrow" ng-click="open($event)"></div>\
+									<div class="selectee-close" ng-click="close()"></div>\
 								</div>\
-								<div class="selecty-dropdown">\
-									<div class="selecty-option-group">\
-										<div ng-repeat-start="filtered in filtered_list track by $index" class="selecty-option-group-label" ng-if="group_by && isNewGroup(filtered)">{{filtered[group_by]}}</div>\
-										<div ng-repeat-end class="selecty-option" ng-click="select($index, $event)" ng-class="{highlight: selected_option_counter == $index, active: last_committed === filtered}" >{{label_is ? filtered[label_is] : filtered}}</div>\
+								<div class="selectee-dropdown">\
+									<div class="selectee-option-group">\
+										<div ng-repeat-start="filtered in filtered_list track by $index" class="selectee-option-group-label" ng-if="group_by && isNewGroup(filtered)">{{filtered[group_by]}}</div>\
+										<div ng-repeat-end class="selectee-option" ng-click="select($index, $event)" ng-class="{highlight: selected_option_counter == $index, active: last_committed === filtered}" >{{label_is ? filtered[label_is] : filtered}}</div>\
 									</div>\
 								</div>\
 							</div>',
 				
 				link: function(scope, elem, attrs, ngModel){
-					scope.filtered_list = scope.selectyOptions;
+					scope.filtered_list = scope.selecteeOptions;
 					scope.selected_option_counter = -1;
 					scope.label_is = attrs['labelIs'];
 					scope.group_by = attrs['groupBy'];
@@ -50,7 +50,7 @@ angular.module('cambiomarcia.selecty', [])
 					var last_group;
 					scope.last_committed;
 
-					scope.$watch('selectyOptions',
+					scope.$watch('selecteeOptions',
 						function(newValue, oldValue){
 							if(!angular.equals(newValue, oldValue)){
 								scope.internal = undefined;
@@ -101,14 +101,14 @@ angular.module('cambiomarcia.selecty', [])
 					function filter(){
 						if(scope.internal && scope.internal !== ''){
 							last_group = undefined;
-							scope.filtered_list = scope.selectyOptions.filter(
+							scope.filtered_list = scope.selecteeOptions.filter(
 								function(value){
 									if(search_in) return searching_function(value[search_in], scope.internal)
 									else return searching_function(value, scope.internal)
 								}
 							)
 						}
-						else scope.filtered_list = scope.selectyOptions;
+						else scope.filtered_list = scope.selecteeOptions;
 					}
 
 					scope.isNewGroup = function(elem){
@@ -200,11 +200,11 @@ angular.module('cambiomarcia.selecty', [])
 						if(scope.group_by){
 							scope.filtered_list = [];
 							var groups = {};
-							for (var i in scope.selectyOptions){
-								if(!groups[scope.selectyOptions[i][scope.group_by]])
-									groups[scope.selectyOptions[i][scope.group_by]] = [];
+							for (var i in scope.selecteeOptions){
+								if(!groups[scope.selecteeOptions[i][scope.group_by]])
+									groups[scope.selecteeOptions[i][scope.group_by]] = [];
 
-								groups[scope.selectyOptions[i][scope.group_by]].push(scope.selectyOptions[i]);
+								groups[scope.selecteeOptions[i][scope.group_by]].push(scope.selecteeOptions[i]);
 							}
 
 							for(var key in groups)

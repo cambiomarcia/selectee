@@ -1,14 +1,14 @@
 /*------------------------------------------------------------------
-SELECTY INPUT
+SELECTEE INPUT
 -------------------------------------------------------------------*/
-.selecty {
+.selectee {
     display: flex;
     position: relative;
     box-sizing: border-box;
     width:100%;
 }
 
-.selecty.open {
+.selectee.open {
     display: flex;
     position: fixed;
     top: 0;
@@ -21,11 +21,11 @@ SELECTY INPUT
     z-index: 99;
 }
 
-.selecty .selecty-input-label {
+.selectee .selectee-input-label {
     display: none;
 }
 
-.selecty.open .selecty-input-label {
+.selectee.open .selectee-input-label {
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -36,7 +36,7 @@ SELECTY INPUT
     color: #ccc;
 }
 
-.selecty .selecty-input-container {
+.selectee .selectee-input-container {
     display: flex;
     position: relative;
     align-items: center;
@@ -49,13 +49,13 @@ SELECTY INPUT
     border-radius:20px;
 }
 
-.selecty.open .selecty-input-container {
+.selectee.open .selectee-input-container {
     font-size:180%;
     height: 50px;
     border-radius: 0;
 }
 
-.selecty .selecty-input {
+.selectee .selectee-input {
     display: block;
     position: relative;
     width: 100%;
@@ -69,11 +69,11 @@ SELECTY INPUT
     -webkit-appearance:none;
 }
 
-.selecty.open .selecty-arrow {
+.selectee.open .selectee-arrow {
     display: none;
 }
 
-.selecty .selecty-arrow {
+.selectee .selectee-arrow {
     display: block;
     position: relative;
     top: 0;
@@ -85,7 +85,7 @@ SELECTY INPUT
     cursor:pointer;
 }
 
-.selecty .selecty-close {
+.selectee .selectee-close {
     display: none;
     position: relative;
     width: 32px;
@@ -94,17 +94,17 @@ SELECTY INPUT
     opacity: 0.3;
 }
 
-.selecty.open .selecty-close {
+.selectee.open .selectee-close {
     display:block;
     cursor:pointer;
 }
 
-.selecty .selecty-close:hover {
+.selectee .selectee-close:hover {
     opacity: 1;
 }
 
-.selecty .selecty-close:before,
-.selecty .selecty-close:after {
+.selectee .selectee-close:before,
+.selectee .selectee-close:after {
     position: absolute;
     left: 15px;
     content: ' ';
@@ -113,22 +113,22 @@ SELECTY INPUT
     background-color: #333;
 }
 
-.selecty .selecty-close:before {
+.selectee .selectee-close:before {
     transform: rotate(45deg);
 }
 
-.selecty .selecty-close:after {
+.selectee .selectee-close:after {
     transform: rotate(-45deg);
 }
 
 /*------------------------------------------------------------------
-SELECTY DROPDOWN
+SELECTEE DROPDOWN
 -------------------------------------------------------------------*/
-.selecty .selecty-dropdown {
+.selectee .selectee-dropdown {
     display: none;
 }
 
-.selecty.open .selecty-dropdown {
+.selectee.open .selectee-dropdown {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -142,14 +142,14 @@ SELECTY DROPDOWN
     overflow-y: scroll;
 }
 
-.selecty.open .selecty-dropdown .selecty-option-group {
+.selectee.open .selectee-dropdown .selectee-option-group {
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.selecty .selecty-dropdown .selecty-option-group .selecty-option-group-label {
+.selectee .selectee-dropdown .selectee-option-group .selectee-option-group-label {
     padding:10px 20px;
     background-color:#fff;
     font-size:70%;
@@ -158,7 +158,7 @@ SELECTY DROPDOWN
     border-bottom:solid 1px #eee;
 }
 
-.selecty .selecty-dropdown .selecty-option-group .selecty-option {
+.selectee .selectee-dropdown .selectee-option-group .selectee-option {
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -170,13 +170,13 @@ SELECTY DROPDOWN
     border-bottom:solid 1px #eee;
 }
 
-.selecty .selecty-dropdown .selecty-option-group .selecty-option:active,
-.selecty .selecty-dropdown .selecty-option-group .selecty-option.highlight {
+.selectee .selectee-dropdown .selectee-option-group .selectee-option:active,
+.selectee .selectee-dropdown .selectee-option-group .selectee-option.highlight {
     background-color: #00BCD4;
     color: #fff;
 }
 
-.selecty .selecty-dropdown .selecty-option-group .selecty-option.active::after {
+.selectee .selectee-dropdown .selectee-option-group .selectee-option.active::after {
     display: block;
     position: relative;
     content: '';
@@ -191,32 +191,32 @@ SELECTY DROPDOWN
 
 
 /*------------------------------------------------------------------
-SELECTY DESKTOP
+SELECTEE DESKTOP
 -------------------------------------------------------------------*/
 @media only screen 
     and (min-width: 1200px) {
-    .selecty.open {
+    .selectee.open {
         position:relative;
         width:100%;
         height: auto;
         padding:0;
     }
 
-    .selecty.open .selecty-input-label {
+    .selectee.open .selectee-input-label {
         display: none;
     }
 
-    .selecty.open .selecty-input-container {
+    .selectee.open .selectee-input-container {
         height:35px;
         font-size:100%;
         border-radius: 10px 10px 0 0;
     }
 
-    .selecty .selecty-input {
+    .selectee .selectee-input {
         font-weight: 400;
     }
 
-    .selecty.open .selecty-dropdown {
+    .selectee.open .selectee-dropdown {
         position: absolute;
         top: 35px;
         left: 0;
@@ -226,21 +226,21 @@ SELECTY DESKTOP
         box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .selecty .selecty-close {
+    .selectee .selectee-close {
         width: 15px;
         height: 15px;
     }
 
-    .selecty .selecty-close:before {
+    .selectee .selectee-close:before {
         left: 6px;
         height: 15px;
     } 
-    .selecty .selecty-close:after {
+    .selectee .selectee-close:after {
         left: 6px;
         height: 16px;
     }
 
-    .selecty .selecty-dropdown .selecty-option-group .selecty-option {
+    .selectee .selectee-dropdown .selectee-option-group .selectee-option {
         -o-user-select:none;
         -ms-user-select:none;
         -moz-user-select:none;
@@ -250,18 +250,18 @@ SELECTY DESKTOP
         cursor:pointer;
     }
 
-    .selecty .selecty-dropdown .selecty-option-group .selecty-option:hover {
+    .selectee .selectee-dropdown .selectee-option-group .selectee-option:hover {
         background-color: #eee;
         transition: background-color .2s;
     }
 
-    .selecty .selecty-dropdown .selecty-option-group .selecty-option:active,
-    .selecty .selecty-dropdown .selecty-option-group .selecty-option.highlight {
+    .selectee .selectee-dropdown .selectee-option-group .selectee-option:active,
+    .selectee .selectee-dropdown .selectee-option-group .selectee-option.highlight {
         background-color: #00BCD4;
         color: #fff;
     }
 
-    .selecty .selecty-dropdown .selecty-option-group .selecty-option.active::after {
+    .selectee .selectee-dropdown .selectee-option-group .selectee-option.active::after {
         height:10px;
     }
 }

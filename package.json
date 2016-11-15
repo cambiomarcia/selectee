@@ -1,8 +1,8 @@
 {
-  "name": "selecty",
+  "name": "selectee",
   "version": "1.0.0",
   "description": "An Angular 1.x jQuery Free replacement for select boxes",
-  "main": "selecty.js",
+  "main": "selectee.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

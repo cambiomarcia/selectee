@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<title>Selecty Test</title>
-		<link rel="stylesheet" type="text/css" href="selecty.css"/>
+		<link rel="stylesheet" type="text/css" href="selectee.css"/>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-		<script src="selecty.js"></script>
+		<script src="selectee.js"></script>
 		<script>
-			angular.module('testApp', ['cambiomarcia.selecty'])
+			angular.module('testApp', ['cambiomarcia.selectee'])
 				.controller('testController', ['$scope', function($scope){
 					$scope.elems = [
 						'Oliver Hutton',
@@ -23,7 +23,7 @@
 	</head>
 	<body>
 		<div ng-app="testApp" ng-controller="testController">
-			<selecty selecty-options="elems" ng-model="selected"></selecty>{{selected}}
+			<selectee selectee-options="elems" ng-model="selected"></selectee>{{selected}}
 		</div>
 	</body>
 </html>
