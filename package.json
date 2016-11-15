@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cambiomarcia/selecty.git"
+    "url": "git+https://github.com/cambiomarcia/selectee.git"
   },
   "keywords": [
     "select",
@@ -19,7 +19,7 @@
   "author": "Fossacecchi Davide, Marri Michele",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cambiomarcia/selecty/issues"
+    "url": "https://github.com/cambiomarcia/selectee/issues"
   },
-  "homepage": "https://github.com/cambiomarcia/selecty#readme"
+  "homepage": "https://github.com/cambiomarcia/selectee#readme"
 }
