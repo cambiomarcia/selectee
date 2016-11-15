@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Selecty Test</title>
+		<link rel="stylesheet" type="text/css" href="selecty.css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="selecty.js"></script>
+		<script>
+			angular.module('testApp', ['cambiomarcia.selecty'])
+				.controller('testController', ['$scope', function($scope){
+					$scope.elems = [
+						'Oliver Hutton',
+						'Benjamin Price',
+						'Tom Becker',
+						'Mark Lenders',
+						'Bruce Harper',
+						'Philip Callagan',
+						'Julian Ross',
+						'Ed Warner'
+					];
+				}]);
+		</script>
+	</head>
+	<body>
+		<div ng-app="testApp" ng-controller="testController">
+			<selecty selecty-options="elems" ng-model="selected"></selecty>{{selected}}
+		</div>
+	</body>
+</html>

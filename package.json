@@ -1,0 +1,25 @@
+{
+  "name": "selecty",
+  "version": "1.0.0",
+  "description": "An Angular 1.x jQuery Free replacement for select boxes",
+  "main": "selecty.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cambiomarcia/selecty.git"
+  },
+  "keywords": [
+    "select",
+    "text",
+    "input",
+    "angular"
+  ],
+  "author": "Fossacecchi Davide, Marri Michele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cambiomarcia/selecty/issues"
+  },
+  "homepage": "https://github.com/cambiomarcia/selecty#readme"
+}
