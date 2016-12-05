@@ -1,6 +1,6 @@
 {
   "name": "selectee",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An Angular 1.x jQuery Free replacement for select boxes",
   "main": "selectee.js",
   "scripts": {
