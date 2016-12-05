@@ -90,7 +90,7 @@ SELECTEE INPUT
     position: relative;
     width: 32px;
     height: 32px;
-    margin-left:10px;
+    /* margin-left:10px; */
     opacity: 0.3;
 }
 
@@ -227,17 +227,17 @@ SELECTEE DESKTOP
     }
 
     .selectee .selectee-close {
-        width: 15px;
-        height: 15px;
+        width: 12px;
+        height: 12px;
     }
 
     .selectee .selectee-close:before {
         left: 6px;
-        height: 15px;
+        height: 12px;
     } 
     .selectee .selectee-close:after {
         left: 6px;
-        height: 16px;
+        height: 12px;
     }
 
     .selectee .selectee-dropdown .selectee-option-group .selectee-option {
