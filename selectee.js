@@ -53,10 +53,12 @@ angular.module('cambiomarcia.selectee', [])
 					scope.$watch('selecteeOptions',
 						function(newValue, oldValue){
 							if(!angular.equals(newValue, oldValue)){
-								scope.internal = undefined;
 								order();
 								filter();
 							}
+
+							if(newValue.indexOf(scope.toCommit) < 0)
+								scope.internal = undefined;
 						}
 					)
 
