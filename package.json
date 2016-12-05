@@ -1,7 +1,7 @@
 {
   "name": "selectee",
-  "version": "2.0.2",
-  "description": "An Angular 1.x jQuery Free replacement for select boxes",
+  "version": "2.0.3",
+  "description": "An Angular 1.x jQuery Free replacement for select inputs",
   "main": "selectee.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
     "input",
     "angular"
   ],
-  "author": "Fossacecchi Davide, Marri Michele",
+  "author": "Davide Fossacecchi, Michele Marri",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cambiomarcia/selectee/issues"
