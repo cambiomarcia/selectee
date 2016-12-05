@@ -57,7 +57,7 @@ angular.module('cambiomarcia.selectee', [])
 								filter();
 							}
 
-							if(newValue.indexOf(scope.toCommit) < 0)
+							if(newValue && newValue.indexOf(scope.toCommit) < 0)
 								scope.internal = undefined;
 						}
 					)
