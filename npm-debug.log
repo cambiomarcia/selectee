@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.3.12
+3 info using node@v5.5.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/michelemarri-onthego/Homestead/Code/selectee',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/michelemarri-onthego/.npm/selectee/2.0.3/package.tgz not in flight; packing
+9 info lifecycle selectee@2.0.3~prepublish: selectee@2.0.3
+10 silly lifecycle selectee@2.0.3~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/michelemarri-onthego/.npm/selectee/2.0.3/package.tgz',
+11 verbose tar pack   '/Users/michelemarri-onthego/Homestead/Code/selectee' ]
+12 verbose tarball /Users/michelemarri-onthego/.npm/selectee/2.0.3/package.tgz
+13 verbose folder /Users/michelemarri-onthego/Homestead/Code/selectee
+14 verbose addLocalTarball adding from inside cache /Users/michelemarri-onthego/.npm/selectee/2.0.3/package.tgz
+15 silly cache afterAdd selectee@2.0.3
+16 verbose afterAdd /Users/michelemarri-onthego/.npm/selectee/2.0.3/package/package.json not in flight; writing
+17 verbose afterAdd /Users/michelemarri-onthego/.npm/selectee/2.0.3/package/package.json written
+18 silly publish { name: 'selectee',
+18 silly publish   version: '2.0.3',
+18 silly publish   description: 'An Angular 1.x jQuery Free replacement for select inputs',
+18 silly publish   main: 'selectee.js',
+18 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git+https://github.com/cambiomarcia/selectee.git' },
+18 silly publish   keywords: [ 'select', 'text', 'input', 'angular' ],
+18 silly publish   author: { name: 'Davide Fossacecchi, Michele Marri' },
+18 silly publish   license: 'MIT',
+18 silly publish   bugs: { url: 'https://github.com/cambiomarcia/selectee/issues' },
+18 silly publish   homepage: 'https://github.com/cambiomarcia/selectee#readme',
+18 silly publish   readme: '<h2>Selectee: An Angular 1.x jQuery Free replacement for select boxes</h2>\n\n<h3>Installation</h3>\n* Download the zip or install it through npm\n```sh\n\tnpm install selectee\n```\n* Properly link the selectee.js file in your code\n```html\n\t<script src="path/to/ng-drift/lib/selectee.js"></script>\n\t<link rel="stylesheet" type="text/css" href="path/to/ng-drift/lib/selectee.css"/>\n```\nif you have installed it through npm, it will simply be\n```html\n\t<script src="node_modules/selectee/selectee.js"></script>\n\t<link rel="stylesheet" type="text/css" href="node_modules/selectee/selectee.css"/>\n```\n* Add \'cambiomarcia.selectee\' as a dependency of your app\n```javascript\n\tangular.module(\'yourApp\', [\'cambiomarcia.selectee\']);\n```\n\n<h3>Attributes</h3>\n* selectee-options: the array of options available in the select\n* ng-model: the model to bind to the selected option\n* ng-disabled: an espression that define when the selectee is disabled\n\nWhen the options are objects, those attributes should be given:\n* label-is: the property of the object that has to be used as as the name of the option\n* group-by: the name of the property that has to be used to define the group\n* full-text: a boolean flag to indicate if the inserted text has to be searched in the entire option or just in the head (default behaviour)\n\nOther default HTML5 attributes are supported: \n* placeholder\n* required\n* tab-index',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '1031bf02c0a93509a41cac9e611ea9469888e1f8',
+18 silly publish   _id: 'selectee@2.0.3',
+18 silly publish   _shasum: 'ba9557ba1bb11186d1dcf598406478cef7db4483',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name selectee
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/selectee
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/michelemarri-onthego/.npm/selectee/2.0.3/package.tgz
+26 verbose request uri https://registry.npmjs.org/selectee
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 7:38:59 PM
+29 verbose request using bearer token for auth
+30 verbose request id 2c77e6e36c362f87
+31 http request PUT https://registry.npmjs.org/selectee
+32 http 403 https://registry.npmjs.org/selectee
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '102',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Mon, 05 Dec 2016 18:39:00 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-fra1236-FRA',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1480963139.467280,VS0,VE688',
+33 verbose headers   vary: 'Accept-Encoding' }
+34 verbose request invalidating /Users/michelemarri-onthego/.npm/registry.npmjs.org/selectee on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: you do not have permission to publish "selectee". Are you logged in as the correct user? : selectee
+36 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:100:13)
+36 verbose stack     at Request.emit (events.js:185:7)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:95:20)
+36 verbose stack     at Request.emit (events.js:182:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid selectee
+39 verbose cwd /Users/michelemarri-onthego/Homestead/Code/selectee
+40 error Darwin 16.3.0
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+42 error node v5.5.0
+43 error npm  v3.3.12
+44 error code E403
+45 error you do not have permission to publish "selectee". Are you logged in as the correct user? : selectee
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
