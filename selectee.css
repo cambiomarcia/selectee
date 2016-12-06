@@ -217,9 +217,8 @@ SELECTEE DESKTOP
     }
 
     .selectee.open .selectee-dropdown {
-        position: absolute;
-        top: 35px;
-        left: 0;
+        position: fixed;
+        margin-top: 35px;
         height: auto;
         max-height: 240px;
         font-size: 100%;
