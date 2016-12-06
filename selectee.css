@@ -225,14 +225,6 @@ SELECTEE DESKTOP
         box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .selectee.open .selectee-dropdown.dropUp {
-        position: absolute;
-        top: initial;
-        bottom:35px;
-        left: 0;
-        box-shadow: 0 -15px 50px rgba(0, 0, 0, 0.2);
-    }
-
     .selectee .selectee-close {
         width: 12px;
         height: 12px;
