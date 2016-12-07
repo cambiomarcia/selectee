@@ -7,7 +7,6 @@ angular.module('cambiomarcia.selectee', [])
 					selecteeOptions: '=',
 					toCommit: '=ngModel',
 					isDisabled: '=ngDisabled',
-					placeholder: '='
 				},
 				require: 'ngModel',
 				template: '<div class="selectee" ng-class="{disabled: isDisabled}">\
@@ -30,7 +29,11 @@ angular.module('cambiomarcia.selectee', [])
 					scope.label_is = attrs['labelIs'];
 					scope.group_by = attrs['groupBy'];
 					scope.label = attrs['label'];
-					if(scope.toCommit) setLabel();
+					if(scope.toCommit)
+						setLabel();
+
+					var input_container = elem[0].getElementsByClassName('selectee-input-container');
+					var selectee_dropdown = elem[0].getElementsByClassName('selectee-dropdown');
 
 					scope.$watch('toCommit', function(newValue, oldValue){
 						if(newValue && scope.internal != getLabel(newValue)){
@@ -164,6 +167,7 @@ angular.module('cambiomarcia.selectee', [])
 					}
 
 					scope.open = function(event){
+						selectee_dropdown[0].style.width = window.getComputedStyle(input_container[0]).width;
 						window.addEventListener(
 							'click',
 							closeIfIsOutside);
