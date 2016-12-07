@@ -71,6 +71,12 @@ angular.module('cambiomarcia.selectee', [])
 						}
 					)
 
+					scope.$watch('toCommit', function(newValue, oldValue){
+						if(newValue && scope.internal !== getLabel(newValue)){
+							scope.internal = getLabel(newValue);
+						}
+					})
+
 					scope.checkClose = function(event){
 						if(event.which === 9 || event.which === 13){
 							scope.toCommit = scope.selected_option_counter >= 0 ? scope.filtered_list[scope.selected_option_counter] : scope.filtered_list[0];
