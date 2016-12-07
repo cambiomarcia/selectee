@@ -6,7 +6,8 @@ angular.module('cambiomarcia.selectee', [])
 				scope: {
 					selecteeOptions: '=',
 					toCommit: '=ngModel',
-					isDisabled: '=ngDisabled'
+					isDisabled: '=ngDisabled',
+					placeholder: '='
 				},
 				require: 'ngModel',
 				template: '<div class="selectee" ng-class="{disabled: isDisabled}">\
@@ -23,14 +24,23 @@ angular.module('cambiomarcia.selectee', [])
 									</div>\
 								</div>\
 							</div>',
-				
 				link: function(scope, elem, attrs, ngModel){
 					scope.filtered_list = scope.selecteeOptions;
 					scope.selected_option_counter = -1;
 					scope.label_is = attrs['labelIs'];
 					scope.group_by = attrs['groupBy'];
 					scope.label = attrs['label'];
-					if(scope.toCommit) getLabel();
+					if(scope.toCommit) setLabel();
+					console.log(scope.internal);
+
+					scope.$watch('toCommit', function(newValue, oldValue){
+						console.log(getLabel(newValue));
+						console.log(scope.internal);
+						if(newValue && scope.internal != getLabel(newValue)){
+							setLabel(newValue);
+							console.log(scope.internal);
+						}
+					})
 					
 					var open = false;
 					var search_in = attrs['searchIn'] || attrs['labelIs'];
@@ -50,14 +60,24 @@ angular.module('cambiomarcia.selectee', [])
 					var last_group;
 					scope.last_committed;
 
+					input.placeholder = scope.placeholder || '';
+
+					scope.$watch('placeholder', function(newValue){
+						input.placeholder = newValue || '';
+					})
+
+
 					scope.$watch('selecteeOptions',
 						function(newValue, oldValue){
+							console.log('opzioni', newValue);
+							console.log('da committare', scope.toCommit);
 							if(!angular.equals(newValue, oldValue)){
 								order();
 								filter();
 							}
 
 							if(newValue && scope.toCommit){
+								console.log('cerco');
 								var found = false;
 								for (var i = 0; i < newValue.length; i++){
 									if (angular.equals(newValue[i], scope.toCommit)) {
@@ -65,17 +85,12 @@ angular.module('cambiomarcia.selectee', [])
 										break;
 									}
 								}
-								if(found) getLabel(scope.toCommit);
+								if(found) setLabel(scope.toCommit);
 								else scope.internal = undefined;
 							}
+							console.log('cambiate le opzioni', scope.internal);
 						}
 					)
-
-					scope.$watch('toCommit', function(newValue, oldValue){
-						if(newValue && scope.internal !== getLabel(newValue)){
-							scope.internal = getLabel(newValue);
-						}
-					})
 
 					scope.checkClose = function(event){
 						if(event.which === 9 || event.which === 13){
@@ -90,11 +105,11 @@ angular.module('cambiomarcia.selectee', [])
 							switch (event.which){
 								case 40: //freccia giù
 									scope.selected_option_counter = Math.min(scope.filtered_list.length - 1, scope.selected_option_counter+1);
-									getLabel(scope.filtered_list[scope.selected_option_counter]);
+									setLabel(scope.filtered_list[scope.selected_option_counter]);
 									break;
 								case 38: 
 									scope.selected_option_counter = Math.max(0, scope.selected_option_counter-1);
-									getLabel(scope.filtered_list[scope.selected_option_counter]);
+									setLabel(scope.filtered_list[scope.selected_option_counter]);
 									break;
 								case 37:
 									break;
@@ -105,7 +120,6 @@ angular.module('cambiomarcia.selectee', [])
 									filter();
 									break;
 							}
-						
 					}
 
 					scope.select = function(index, event){
@@ -116,6 +130,7 @@ angular.module('cambiomarcia.selectee', [])
 					}
 
 					function filter(){
+						console.log('mi chiamano');
 						if(scope.internal && scope.internal !== ''){
 							last_group = undefined;
 							scope.filtered_list = scope.selecteeOptions.filter(
@@ -126,6 +141,7 @@ angular.module('cambiomarcia.selectee', [])
 							)
 						}
 						else scope.filtered_list = scope.selecteeOptions;
+						console.log(scope.internal);
 					}
 
 					scope.isNewGroup = function(elem){
@@ -186,17 +202,20 @@ angular.module('cambiomarcia.selectee', [])
 					}
 
 					function commit(){
-						getLabel();
+						setLabel();
 						ngModel.$setViewValue(scope.toCommit);
+					}
+
+					function setLabel(value){
+						scope.internal = getLabel(value);
 					}
 
 					function getLabel(value){
 						var setting = value || scope.toCommit;
 						if(setting){
-							if(scope.label_is) scope.internal = setting[scope.label_is];
-							else scope.internal = setting;
+							if(scope.label_is) return setting[scope.label_is];
+							else return setting;
 						}
-						else scope.internal = undefined;
 					}
 
 					function setScroll(value){
@@ -253,7 +272,6 @@ angular.module('cambiomarcia.selectee', [])
 						function(){
 							window.removeEventListener('click', closeIfIsOutside);
 						});
-
 				}
 			}
 		})
