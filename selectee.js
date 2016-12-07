@@ -167,7 +167,6 @@ angular.module('cambiomarcia.selectee', [])
 					}
 
 					scope.open = function(event){
-						selectee_dropdown[0].style.width = window.getComputedStyle(input_container[0]).width;
 						window.addEventListener(
 							'click',
 							closeIfIsOutside);
@@ -181,6 +180,7 @@ angular.module('cambiomarcia.selectee', [])
 						
 						open = true;
 						elem[0].classList.add('open');
+						selectee_dropdown[0].style.width = window.getComputedStyle(input_container[0]).width;
 						setScrollable(false, event.type === 'focus');
 					}
 
