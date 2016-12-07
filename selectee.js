@@ -31,16 +31,22 @@ angular.module('cambiomarcia.selectee', [])
 					scope.group_by = attrs['groupBy'];
 					scope.label = attrs['label'];
 					if(scope.toCommit) setLabel();
-					console.log(scope.internal);
 
 					scope.$watch('toCommit', function(newValue, oldValue){
-						console.log(getLabel(newValue));
-						console.log(scope.internal);
 						if(newValue && scope.internal != getLabel(newValue)){
-							setLabel(newValue);
-							console.log(scope.internal);
+							var found = false;
+							for (var i = 0; i < scope.selecteeOptions.length; i++){
+								if (angular.equals(scope.selecteeOptions[i], newValue)) {
+									found = true;
+									break;
+								}
+							}
+							if(found) setLabel(newValue);
+							else scope.internal = undefined;
 						}
 					})
+
+					scope.areEquals = angular.equals;
 					
 					var open = false;
 					var search_in = attrs['searchIn'] || attrs['labelIs'];
@@ -60,24 +66,26 @@ angular.module('cambiomarcia.selectee', [])
 					var last_group;
 					scope.last_committed;
 
-					input.placeholder = scope.placeholder || '';
+					input.placeholder = attrs['placeholder'] || '';
 
-					scope.$watch('placeholder', function(newValue){
-						input.placeholder = newValue || '';
-					})
+					scope.$watch(
+						function(){
+							return attrs['placeholder'];
+						},
+						function(newValue){
+							input.placeholder = newValue || '';
+						}
+					)
 
 
 					scope.$watch('selecteeOptions',
 						function(newValue, oldValue){
-							console.log('opzioni', newValue);
-							console.log('da committare', scope.toCommit);
 							if(!angular.equals(newValue, oldValue)){
 								order();
 								filter();
 							}
 
 							if(newValue && scope.toCommit){
-								console.log('cerco');
 								var found = false;
 								for (var i = 0; i < newValue.length; i++){
 									if (angular.equals(newValue[i], scope.toCommit)) {
@@ -88,7 +96,6 @@ angular.module('cambiomarcia.selectee', [])
 								if(found) setLabel(scope.toCommit);
 								else scope.internal = undefined;
 							}
-							console.log('cambiate le opzioni', scope.internal);
 						}
 					)
 
@@ -130,18 +137,19 @@ angular.module('cambiomarcia.selectee', [])
 					}
 
 					function filter(){
-						console.log('mi chiamano');
 						if(scope.internal && scope.internal !== ''){
 							last_group = undefined;
-							scope.filtered_list = scope.selecteeOptions.filter(
-								function(value){
-									if(search_in) return searching_function(value[search_in], scope.internal)
-									else return searching_function(value, scope.internal)
-								}
-							)
+							try{
+								scope.filtered_list = scope.selecteeOptions.filter(
+									function(value){
+										if(search_in) return searching_function(value[search_in], scope.internal)
+										else return searching_function(value, scope.internal)
+									}
+								)
+							}
+							catch(e){}
 						}
 						else scope.filtered_list = scope.selecteeOptions;
-						console.log(scope.internal);
 					}
 
 					scope.isNewGroup = function(elem){
