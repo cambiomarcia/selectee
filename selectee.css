@@ -193,7 +193,7 @@ SELECTEE DROPDOWN
 /*------------------------------------------------------------------
 SELECTEE DESKTOP
 -------------------------------------------------------------------*/
-@media only screen 
+@media only screen
     and (min-width: 1200px) {
     .selectee.open {
         position:relative;
@@ -217,7 +217,7 @@ SELECTEE DESKTOP
     }
 
     .selectee.open .selectee-dropdown {
-        position: fixed;
+        position: absolute;
         margin-top: 35px;
         height: auto;
         max-height: 240px;
@@ -233,7 +233,7 @@ SELECTEE DESKTOP
     .selectee .selectee-close:before {
         left: 6px;
         height: 12px;
-    } 
+    }
     .selectee .selectee-close:after {
         left: 6px;
         height: 12px;
