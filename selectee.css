@@ -135,7 +135,7 @@ SELECTEE DROPDOWN
     justify-content: flex-start;
     box-sizing: border-box;
     width:100%;
-    height: calc(100% - 50px);
+    height: calc(100vh - 50px);
     font-size:130%;
     background-color: #fff;
     color:#333;
